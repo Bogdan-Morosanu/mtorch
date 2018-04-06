@@ -1,10 +1,11 @@
-FROM pytorch/pytorch:latest
+# this is just a local build of the upstream pytorch docker
+FROM local-pytorch:latest 
 
 LABEL maintainer="Bogdan Morosanu <bogdan.moro.mail@gmail.com>"
 
 RUN apt-get update && apt-get upgrade -y && apt-get install --no-install-recommends -y emacs
 
-RUN conda install --name=pytorch-py35 \
+RUN conda install --name=base \
         Pillow \
         h5py \
         ipykernel \
